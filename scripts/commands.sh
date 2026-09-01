@@ -1,3 +1,5 @@
+#!/bin/sh
+
 set -e
 
 wait_psql.sh
