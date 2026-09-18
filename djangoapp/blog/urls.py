@@ -1,15 +1,15 @@
 
-from blog.views import  post, page, tag, search, PostListView, CreatedByListView, CategoryListView
+from blog.views import  PostDetailView, PageDetailView, TagListView, SearchListView, PostListView, CreatedByListView, CategoryListView
 from django.urls import path
 
 app_name = 'blog'
 
 urlpatterns = [
     path('', PostListView.as_view(), name='index'),
-    path('post/<slug:slug>/', post, name='post'),
-    path('page/<slug:slug>/', page, name='page'),
+    path('post/<slug:slug>/', PostDetailView.as_view(), name='post'),
+    path('page/<slug:slug>/', PageDetailView.as_view(), name='page'),
     path('created_by/<int:author_pk>/', CreatedByListView.as_view(), name='created_by'),
     path('category/<slug:slug>/', CategoryListView.as_view(), name='category'),
-    path('tag/<slug:slug>/', tag, name='tag'),
-    path('search/', search, name='search'),
+    path('tag/<slug:slug>/', TagListView.as_view(), name='tag'),
+    path('search/', SearchListView.as_view(), name='search'),
 ]
